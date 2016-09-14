@@ -1,0 +1,6 @@
+<h1>Matt Wiki</h1>
+
+<%= link_to 'User Registration', new_user_path %>
+<% @categories.each do |category| %>
+  <%= link_to category.name, category %><br>
+<% end %>
