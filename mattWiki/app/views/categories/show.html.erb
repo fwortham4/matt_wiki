@@ -1,0 +1,4 @@
+<h1><%= @category.name %></h1>
+<% @category.articles.each do |article| %>
+  <%= link_to article.title, article_path %>
+<% end %>
