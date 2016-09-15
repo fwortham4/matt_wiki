@@ -1,6 +1,6 @@
 class CreateVersionTable < ActiveRecord::Migration[5.0]
   def change
-    create_table :version_tables do |t|
+    create_table :versions do |t|
       t.string :title, :null => false
       t.text :content, :null => false
       t.integer :author_id, :null => false

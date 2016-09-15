@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20160915143832) do
     t.datetime "updated_at",      null: false
   end
 
-  create_table "version_tables", force: :cascade do |t|
+  create_table "versions", force: :cascade do |t|
     t.string   "title",      null: false
     t.text     "content",    null: false
     t.integer  "author_id",  null: false

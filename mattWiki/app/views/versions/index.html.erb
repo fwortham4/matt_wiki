@@ -1,0 +1,4 @@
+<h1><%=@article.name%> Versions</h1>
+<%= @versions.each do |version| %>
+  <%= link_to version.id, article_version_path(version)%><%= version.title %>
+<% end %>
