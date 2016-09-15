@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   end
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :admins, only: [:show]
+  # resources :admins, only: [:show]
+
+  get '/admins/:id', to: 'admins#show', as: 'admin'
 
   delete '/admins', to: 'devise/registrations#destroy', as: 'destroyAdmin'
 
