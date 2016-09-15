@@ -1,7 +1,26 @@
 <%= form_for @article do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :content %>
-  <%= f.text_area :content %>
+  <% if @article.errors.any?  %>
+    <div id="errors">
+      <p><%= pluralize(@article.errors.count, "error")%> prevented this article from saving</p>
+      <ul>
+        <% @article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.label :title %><br>
+  <%= f.text_field :title %><br>
+  <%= f.label :content %><br>
+  <%= f.text_area :content %><br>
+  <%= f.label :category_id %>
+    <%= f.select (:category_id) do %>
+    !!!!!!!!!!!!!!!!!!!!!!!!
+
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      <% categories_options_array = Category.all.map {|category| [category.name, category.id]} %>
+      <%= options_for_select(categories_options_array) %>
+
+    <% end %>
   <%= f.submit %>
-<% end %>
+ <% end %>

@@ -1,7 +1,12 @@
 class ArticlesController < ApplicationController
+  include SessionHelper
 
  def new
     @article = Article.new
+    @categories = Category.all
+    puts "**********************"
+    p @categories
+    puts "**********************"
   end
 
   def show
@@ -13,10 +18,12 @@ class ArticlesController < ApplicationController
   def create
     # need to add errors
     @article = Article.new(article_params)
+    @article.author_id = 1
+    # @article.author_id = current_user.id
     if @article.save
-      redirect_to article_path
-    # else
-    #   render 'new'
+      redirect_to @article
+    else
+      render 'new'
     end
   end
 
@@ -26,7 +33,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content, :category_id)
     # maybe category ?
   end
 end
