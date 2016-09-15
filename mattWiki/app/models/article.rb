@@ -3,4 +3,6 @@ class Article < ApplicationRecord
   has_many :versions
   validates_presence_of :category_id
 
+
+
 end
