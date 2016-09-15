@@ -12,11 +12,6 @@ class VersionsController < ApplicationController
     @versions = @article.versions
     @version_count = @article.versions.count - 1
     @author = @version.author
-    if request.xhr?
-
-    else
-
-    end
 
   end
 end

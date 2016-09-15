@@ -7,6 +7,8 @@
   <%= link_to 'Login', new_session_path %>
 <% end %>
 
+<br><br>
+<h2>Categories</h2>
 <% @categories.each do |category| %>
   <%= link_to category.name, category %><br>
 <% end %>
