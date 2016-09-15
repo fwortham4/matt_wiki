@@ -4,17 +4,26 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   Character.create(name: 'Luke', movie: movies.fird
+User.destroy_all
+Category.destroy_all
+Article.destroy_all
+Version.destroy_all
+
 Category.create!(name: "Aquatic Life")
 Category.create!(name: "Pachyderms")
 Category.create!(name: "Primates")
 Category.create!(name: "Marsupials")
 Category.create!(name: "Turtles")
 
-Article.create!(title: "I Like Turtles", content: "They are great. They carry their homes around on their back", category_id: 1, author_id: 1)
+User.create!(first_name: "Matt", last_name: "Baker", username: "Bakemeacake", email: "matt@matt.matt", password: "password")
 
-Article.create!(title: "Turtle Diets", content: "Turtles like to eat lettuce. Some tutrles eat small fish.", category_id: 1, author_id: 1)
+Article.create!(category_id: Category.last.id)
 
-Article.create!(title: "Elephantastic!", content: "Elephants are amazing!", category_id: 4, author_id: 1)
+Version.create!(title: "I Like Turtles", content: "They are great. They carry their homes around on their back", article_id: Article.last.id, author_id: User.last.id)
 
-Article.create!(title: "Money Habitats", content: "Monkeys live in a variety of habitats. One is the rainforest. They seek protection from predators by climbing high into the canopy.", category_id: 3, author_id: 1)
+Version.create!(title: "Turtle Diets", content: "Turtles like to eat lettuce. Some tutrles eat small fish.", article_id: Article.last.id, author_id: User.last.id)
+
+Version.create!(title: "Elephantastic!", content: "Elephants are amazing!", article_id: Article.last.id, author_id: User.last.id)
+
+Version.create!(title: "Money Habitats", content: "Monkeys live in a variety of habitats. One is the rainforest. They seek protection from predators by climbing high into the canopy.", article_id: Article.last.id, author_id: User.last.id)

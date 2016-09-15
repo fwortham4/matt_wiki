@@ -12,16 +12,15 @@
   <%= f.label :title %><br>
   <%= f.text_field :title %><br>
   <%= f.label :content %><br>
-  <%= f.text_area :content %><br>
+
+   <textarea id="mytextarea" <%= f.text_field :content %> >
+   </textarea><br>
   <%= f.label :category_id %>
     <%= f.select (:category_id) do %>
-    !!!!!!!!!!!!!!!!!!!!!!!!
-
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!
       <% categories_options_array = Category.all.map {|category| [category.name, category.id]} %>
       <%= options_for_select(categories_options_array) %>
 
     <% end %>
-  <%= f.submit %>
+  <br><br><%= f.submit %>
  <% end %>
 

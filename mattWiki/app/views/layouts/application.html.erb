@@ -6,6 +6,17 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src='https://cdn.tinymce.com/4/tinymce.min.js'></script>
+      <script>
+        tinymce.init({
+        selector: '#mytextarea',
+        forced_root_block: "",
+        theme: 'modern',
+        width: 600,
+        height: 300,
+        element_format : 'html',
+        });
+      </script>
   </head>
 
   <body>
