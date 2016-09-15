@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   resources :articles
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :admin, only: [:show]
+  # GET '/admin/show', to: ''
 
 end
