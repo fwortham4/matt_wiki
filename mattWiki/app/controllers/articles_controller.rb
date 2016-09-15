@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   include SessionHelper
 
- def new
+  def new
     @article = Article.new
   end
 
