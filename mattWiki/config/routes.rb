@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :categories
   resources :articles
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
 end
