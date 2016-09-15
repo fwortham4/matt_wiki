@@ -1,6 +1,6 @@
 <h1><%= @article.title %></h1>
-<%= @article.content %><br><br>
-
+<%= raw @article.content.html_safe %><br><br>
+<!-- tinyMCE.activeEditor.getContent({format : 'raw'}); -->
 <p>Written by <%= link_to @article.author.username, user_path(@article.author) %></p><!-- eventually a link to author/editor user profile -->
 
 
