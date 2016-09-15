@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_admin!
   include SessionHelper
 
- def new
+  def new
     @article = Article.new
   end
 

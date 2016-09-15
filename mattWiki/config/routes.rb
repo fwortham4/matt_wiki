@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   root "homepage#index"
 
   resources :categories
-  resources :articles
+  resources :articles do
+    resources :versions
+  end
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :admin, only: [:show]
