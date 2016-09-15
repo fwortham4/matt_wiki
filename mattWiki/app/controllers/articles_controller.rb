@@ -9,8 +9,6 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-
-
   def create
     # need to add errors
     @article = Article.new(article_params)
@@ -25,6 +23,11 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+  end
+
+  def featured
+    selected = Article.find(params[:articles])
+    selected.selected_featured
   end
 
   private
