@@ -1,3 +1,13 @@
+<h1>User Login</h1>
+
+<% if @errors %>
+  <ul>
+    <% @errors.each do |error| %>
+      <li style="color:red"><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for :session, url: sessions_path do |f| %>
 
   <%= f.label :username %><br>
@@ -6,6 +16,6 @@
   <%= f.label :password %><br>
   <%= f.text_field :password %><br>
 
-  <%= f.submit "Submit" %>
+  <%= f.submit "Submit" %><br>
 
 <% end %>

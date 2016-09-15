@@ -1,5 +1,13 @@
 <h1> User Registration </h1>
 
+<% if @errors %>
+  <ul>
+    <% @errors.each do |error| %>
+      <li style="color:red"><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for @user do |f| %>
   <%= f.label :email %><br>
   <%= f.text_field :email %><br>

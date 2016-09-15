@@ -10,9 +10,11 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         redirect_to @user
       else
+        @errors = ['Username/Password is invalid']
         render 'new'
       end
     else
+      @errors = ['Username/Password is invalid']
       render 'new'
     end
   end

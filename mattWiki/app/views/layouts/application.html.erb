@@ -20,10 +20,22 @@
   </head>
 
   <body>
-    <header><%= link_to "New Article", new_article_path %></header>
+
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+    <!-- <header><%# link_to "New Article", new_article_path %></header> -->
+    <%= render '/layouts/nav' %>
   <main>
     <%= yield %>
-  </main>
-
+  </main><br>
+  <% if logged_in? == nil %>
+    <footer><%= link_to 'Admin Register', new_admin_registration_path %> |
+      <%= link_to 'Admin Login', new_admin_session_path %>
+      <% if current_admin %>
+        | <%= link_to 'Admin Logout', destroy_admin_session_path, method: :delete %>
+      <% end %>
+    </footer>
+  <% end %>
   </body>
 </html>
