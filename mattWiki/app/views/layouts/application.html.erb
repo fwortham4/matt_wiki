@@ -9,8 +9,10 @@
   </head>
 
   <body>
-    <p class="notice"><%= Access Denied %></p>
-    <p class="alert"><%= Access Denied again %></p>
+
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
     <header><%= link_to "New Article", new_article_path %></header>
   <main>
     <%= yield %>

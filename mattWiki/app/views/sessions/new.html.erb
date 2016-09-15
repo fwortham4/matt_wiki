@@ -16,6 +16,9 @@
   <%= f.label :password %><br>
   <%= f.text_field :password %><br>
 
-  <%= f.submit "Submit" %>
+  <%= f.submit "Submit" %><br>
 
+
+<%= link_to 'Admin Login', new_admin_session_path %><br>
+<%= link_to 'Admin Logout', destroy_admin_session_path, method: :delete %>
 <% end %>
