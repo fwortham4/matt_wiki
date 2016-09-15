@@ -1,3 +1,10 @@
 <nav>
-
+  <%= link_to 'Home', root_path %>
+  <% if logged_in? %>
+    <%= link_to 'Logout', session_path(current_user.id), method: :delete %>
+  <% else %>
+    <%= link_to 'Registration', new_user_path %>
+    <%= link_to 'Login', new_session_path %>
+  <% end %>
 </nav>
+
