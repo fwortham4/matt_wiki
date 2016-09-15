@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all1
+    @articles = Article.all
   end
 
   private
