@@ -3,10 +3,6 @@ class ArticlesController < ApplicationController
 
  def new
     @article = Article.new
-    @categories = Category.all
-    puts "**********************"
-    p @categories
-    puts "**********************"
   end
 
   def show
@@ -18,7 +14,7 @@ class ArticlesController < ApplicationController
   def create
     # need to add errors
     @article = Article.new(article_params)
-    @article.author_id = 1
+    @article.author_id = current_user.id
     # @article.author_id = current_user.id
     if @article.save
       redirect_to @article
