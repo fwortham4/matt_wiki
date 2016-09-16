@@ -6,3 +6,17 @@
 <% @categories.each do |category| %>
   <%= link_to category.name, category %><br>
 <% end %>
+
+<% @featured_article = Article.find_by_featured(true) %>
+<!-- Relocate this logic later!!!! -->
+
+<br><br><br>
+<% if @featured_article %>
+  <div>
+    <h2>Featured Article</h2>
+    Title: <%= @featured_article.versions.last.title %><br>
+    Author: <%= @featured_article.versions.last.author.username %><br>
+    Content: <%= @featured_article.versions.last.content %><br>
+  </div>
+<% end %>
+
