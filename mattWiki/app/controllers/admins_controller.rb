@@ -1,5 +1,7 @@
 class AdminsController < ApplicationController
   def show
-    @articles = Article.all
+    if authenticate_admin!
+      @articles = Article.all
+    end
   end
 end

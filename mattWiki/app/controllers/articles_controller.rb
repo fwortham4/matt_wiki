@@ -42,7 +42,9 @@ class ArticlesController < ApplicationController
   end
 
   def featured
-    selected = Article.find(params[:articles])
-    selected.selected_featured
+    if authenticate_admin!
+      selected = Article.find(params[:articles])
+      selected.selected_featured
+    end
   end
 end
