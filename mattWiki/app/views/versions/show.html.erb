@@ -1,6 +1,6 @@
 <h1><%= @version.title %></h1>
-<p>Written by: <%= @author.username %></p>
-<p><%= @version.content %></p>
+<p>Written by: <%= @author.username.capitalize %></p>
+<p><%= @version.content.html_safe %></p>
 
 
 <% if @version_count > 1  %>
@@ -11,3 +11,7 @@
     <% counter += 1 %>
   <% end %>
 <%end  %>
+
+<p>Visit <%= link_to @version.author.username.capitalize %>'s profile</p><!-- eventually a link to author/editor user profile -->
+
+<p>|Category| <%= link_to @article.category.name, category_path(@article.category) %></p>

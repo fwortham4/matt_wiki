@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+
   end
 
   def show
@@ -10,12 +11,27 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    # need to add errors
-    @article = Article.new(article_params)
-    @article.author_id = current_user.id
-    # @article.author_id = current_user.id
+    @article = Article.new(category_id: params["article"]["category_id"])
+    @article.save
+    @version = Version.new
+
+    version_title = params["article"]["version"]["title"]
+    version_content = params["article"]["version"]["content"]
+
+    @version.title = version_title
+    @version.content = version_content
+    @version.author_id = current_user.id
+    @version.article_id = @article.id
+    @version.save
+    @versions = @article.versions
+    @version_count = @article.versions.count - 1
+    @author = @version.author
+
     if @article.save
-      redirect_to @article
+      @article
+      @version
+      @version_count
+      render 'versions/show'
     else
       render 'new'
     end
@@ -28,11 +44,5 @@ class ArticlesController < ApplicationController
   def featured
     selected = Article.find(params[:articles])
     selected.selected_featured
-  end
-
-  private
-  def article_params
-    params.require(:article).permit(:title, :content, :category_id)
-    # maybe category ?
   end
 end
