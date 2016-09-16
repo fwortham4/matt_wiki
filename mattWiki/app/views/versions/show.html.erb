@@ -1,5 +1,5 @@
 <h1><%= @version.title %></h1>
-
+<p>Written by: <%= @author.username.capitalize %></p>
 <p><%= @version.content.html_safe %></p>
 
 
@@ -12,9 +12,6 @@
   <% end %>
 <%end  %>
 
-<!-- tinyMCE.activeEditor.getContent({format : 'raw'}); -->
-<p>Written by <%= link_to @version.author.username %></p><!-- eventually a link to author/editor user profile -->
-
-
+<p>Visit <%= link_to @version.author.username.capitalize %>'s profile</p><!-- eventually a link to author/editor user profile -->
 
 <p>|Category| <%= link_to @article.category.name, category_path(@article.category) %></p>
