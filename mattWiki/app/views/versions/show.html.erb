@@ -1,12 +1,14 @@
 <h1><%= @version.title %></h1>
-<p>Written by: <%= @author.username.capitalize %></p>
+<p>Written by: <%= @version.author.username.capitalize %></p>
 <p><%= @version.content.html_safe %></p>
 
 <%= link_to "Edit this article here", new_article_version_path(@article.id, @version.id)  %>
+
+
 <% if @version_count > 1  %>
 <p>This article has <%= @version_count %> previous versions</p>
   <% counter = 1 %>
-  <% @versions.each do |version| %>
+  <% @version.article.versions.each do |version| %>
     <%= counter %> <%= link_to version.title, article_version_path(@article.id, version.id) %> <br>
     <% counter += 1 %>
   <% end %>
