@@ -18,15 +18,18 @@
 
         </textarea><br>
 
-    <%= ff.label :category_id %>
-    <%= ff.select (:category_id)  do %>
-      <% categories_options_array = Category.all.map {|category| [category.name, category.id]} %>
-      <%= options_for_select(categories_options_array) %>
-    <% end %>
-  <% end %>
-
-
-
+    <%= f.label :category_id %>
+  <!-- <div class='input-field'> -->
+    <%# f.select (:category_id) do %>
+      <% Category.all.map {|category| [category.name, category.id]}.each do |cat| %>
+        <p>
+           <input name="article[category_id]" id=<%= cat[1] %> type="radio" value=<%= cat[1] %> />
+          <label for=<%= cat[1] %> ><%=  cat[0] %></label>
+        </p>
+      <% end %>
+      <%# options_for_select(categories_options_array) %>
+  <!-- </div> -->
   <br><br>
   <%= f.submit %>
- <% end %>
+    <% end %>
+    <% end %>

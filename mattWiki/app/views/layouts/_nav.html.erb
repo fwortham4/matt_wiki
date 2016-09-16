@@ -1,8 +1,8 @@
-<span class="nav-wrapper">
+<span>
   <%= form_tag categories_path, :method => 'get' do %>
-    <p class="input-field">
-      <%= text_field_tag :search, params[:search], id: 'search', type: "search" %>
-      <%= submit_tag "Search", :name => nil, class: "material-icons" %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil%>
     </p>
   <% end %>
 </span>

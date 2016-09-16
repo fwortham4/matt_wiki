@@ -3,6 +3,8 @@
  * Copyright 2014-2015 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
+
+
 .materialize-red {
   background-color: #e51c23 !important;
 }
@@ -4073,6 +4075,15 @@ nav {
   line-height: 56px;
 }
 
+.featured-article {
+  border: solid;
+}
+
+a:hover {
+  background-color: yellow;
+  color: black;
+}
+
 nav a {
   color: #fff;
 }
@@ -4089,6 +4100,8 @@ nav i.material-icons {
 nav .nav-wrapper {
   position: relative;
   height: 100%;
+  background-color: #d699ff;
+
 }
 
 @media only screen and (min-width: 993px) {
