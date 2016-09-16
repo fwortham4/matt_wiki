@@ -18,12 +18,19 @@ Category.create!(name: "Turtles")
 
 User.create!(first_name: "Matt", last_name: "Baker", username: "Bakemeacake", email: "matt@matt.matt", password: "password")
 
+Article.create!(category_id: Category.last.id-1)
+Article.create!(category_id: Category.last.id-2)
+Article.create!(category_id: Category.last.id-3)
+Article.create!(category_id: Category.last.id-4)
 Article.create!(category_id: Category.last.id)
+
 
 Version.create!(title: "I Like Turtles", content: "They are great. They carry their homes around on their back", article_id: Article.last.id, author_id: User.last.id)
 
-Version.create!(title: "Turtle Diets", content: "Turtles like to eat lettuce. Some tutrles eat small fish.", article_id: Article.last.id, author_id: User.last.id)
+Version.create!(title: "Turtle Diets", content: "Turtles like to eat lettuce. Some tutrles eat small fish.", article_id: Article.last.id-1, author_id: User.last.id)
 
-Version.create!(title: "Elephantastic!", content: "Elephants are amazing!", article_id: Article.last.id, author_id: User.last.id)
+Version.create!(title: "Elephantastic!", content: "Elephants are amazing!", article_id: Article.last.id-2, author_id: User.last.id)
 
-Version.create!(title: "Money Habitats", content: "Monkeys live in a variety of habitats. One is the rainforest. They seek protection from predators by climbing high into the canopy.", article_id: Article.last.id, author_id: User.last.id)
+Version.create!(title: "Money Habitats", content: "Monkeys live in a variety of habitats. One is the rainforest. They seek protection from predators by climbing high into the canopy.", article_id: Article.last.id-3, author_id: User.last.id)
+Version.create!(title: "Money Habitats", content: "Monkeys live in a variety of habitats. One is the rainforest. They seek protection from predators by climbing high into the canopy.", article_id: Article.last.id-4, author_id: User.last.id)
+
