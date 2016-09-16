@@ -1,12 +1,13 @@
 <nav>
   <%= link_to 'Home', root_path %> |
   <% if logged_in? %>
+    <%= link_to current_user.username, current_user %> |
     <%= link_to "New Article", new_article_path %> |
     <%= link_to 'Logout', session_path(current_user.id), method: :delete %>
   <% elsif admin_signed_in? %>
     <%= link_to 'Admin Page', admin_path(current_admin.id) %> |
   <% else %>
     <%= link_to 'Registration', new_user_path %> |
-    <%= link_to 'Login', new_session_path %> |
+    <%= link_to 'Login', new_session_path %>
   <% end %>
 </nav>
