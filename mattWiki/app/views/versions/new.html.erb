@@ -1,0 +1,22 @@
+<%= form_for article_versions_path do |f| %>
+  <% if @version.errors.any?  %>
+    <div id="errors">
+      <p><%= pluralize(@version.errors.count, "error")%> prevented this article from saving</p>
+      <ul>
+        <% @version.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.fields_for :version do |ff| %>
+      <%= ff.label :title %><br>
+      <%= ff.text_field :title, :value => @version.title %><br>
+      <%= ff.label :content %><br>
+        <textarea id="mytextarea",value => <%= @version.content %> <% ff.text_field :content %> >
+        </textarea><br>
+  <% end %>
+
+  <br><br>
+  <%= f.submit %>
+ <% end %>

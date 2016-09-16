@@ -1,5 +1,8 @@
 <h1><%= @category.name %></h1>
-<%  %>
-<% @category.articles.each do |article| %>
-  <%= link_to article.versions.last.title, article_version_path(article.id, article.versions.last.id) %><br>
-<% end %>
+<% if @article_number > 0 %>
+    <% @category.articles.each do |article| %>
+      <%= link_to article.versions.last.title, article_version_path(article.id, article.versions.last.id) %><br>
+    <% end %>
+  <% else %>
+    <p>This category doesn't currently have any articles.</p>
+  <% end %>
