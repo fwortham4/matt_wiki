@@ -1,4 +1,4 @@
-<%= form_for article_versions_path do |f| %>
+<%= form_for @version, :url => article_versions_path do |f| %>
   <% if @version.errors.any?  %>
     <div id="errors">
       <p><%= pluralize(@version.errors.count, "error")%> prevented this article from saving</p>
@@ -11,9 +11,11 @@
   <% end %>
   <%= f.fields_for :version do |ff| %>
       <%= ff.label :title %><br>
-      <%= ff.text_field :title, :value => @version.title %><br>
+      <%= ff.text_field :title, :value => @version1.title %><br>
       <%= ff.label :content %><br>
-        <textarea id="mytextarea",value => <%= @version.content %> <% ff.text_field :content %> >
+
+        <textarea id="mytextarea" <%= ff.text_area :content, :value => @version1.content  %> >
+
         </textarea><br>
   <% end %>
 

@@ -17,7 +17,8 @@ class VersionsController < ApplicationController
 
   def new
     @article = Article.find(params[:article_id])
-    @version = Version.find(@article.versions.last.id)
+    @version1 = Version.find(@article.versions.last.id)
+    @version = Version.new
     # this is our issue currently. we need this to get the info from the previous version to edit it but also we need to change the version id in order for it to save as a new version rather than override the current one.
 
     # 9:23pm. Morale is low. Brain capacity is being tested. Weve lost two devs. Anca and Derick have jumped ship. All that remains is team WIKI and ALex aka Jack Noble aka delicious dinner. We plan to use the hot plate to crisp his outter layer. Seasonings have been provided from CVS.
@@ -28,6 +29,8 @@ class VersionsController < ApplicationController
   end
 
   def create
+    @article = Article.find(params[:article_id])
+    @version = Version.new
 
   end
 end
