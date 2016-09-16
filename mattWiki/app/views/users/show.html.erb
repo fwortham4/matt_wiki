@@ -4,3 +4,20 @@
 <p>Name: <%= @user.first_name %><%= @user.last_name %></p>
 <p>Email: <%= @user.email %></p><br>
 
+
+<h2>Original Articles:</h2>
+<% @my_contribution.each do |version|  %>
+  <% if version.article.versions.first.author_id == @user.id %>
+    <%= version.article_id %><br>
+    <%= version.title %><br>
+    <%= version.content %><br><br>
+  <% end %>
+<% end %>
+
+<h2>Things I've Contriubted Too:</h2>
+<% @my_contribution.each do |version|  %>
+  <%= version.article_id %><br>
+  <%= version.title %><br>
+  <%= version.content %><br><br>
+<% end %>
+

@@ -12,6 +12,6 @@
   <% end %>
 <%end  %>
 
-<p>Visit <%= link_to @version.author.username.capitalize %>'s profile</p><!-- eventually a link to author/editor user profile -->
+<p>Visit <%= link_to @version.author.username.capitalize, @version.author %>'s profile</p><!-- eventually a link to author/editor user profile -->
 
 <p>|Category| <%= link_to @article.category.name, category_path(@article.category) %></p>
