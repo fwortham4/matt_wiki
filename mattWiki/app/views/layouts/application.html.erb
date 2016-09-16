@@ -2,11 +2,28 @@
 <html>
   <head>
     <title>MattWiki</title>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src='https://cdn.tinymce.com/4/tinymce.min.js'></script>
+
+
       <script>
         tinymce.init({
         selector: '#mytextarea',
@@ -19,29 +36,38 @@
       </script>
 
   </head>
+  <body class="card-panel teal lighten-2" >
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
-  <body>
+    <div class="col s3">
+      <%= render '/layouts/nav' %>
+    </div>
 
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <div class="row">
+      <sidebar class="col s3">
+        <h4>Categories</h4>
 
+        <% Category.all.each do |category| %>
+          <%= link_to category.name, category %><br>
+        <% end %>
+      </sidebar>
 
-    <%= render '/layouts/nav' %>
-  <main>
-    <%= yield %>
-  </main>
-  <br/>
-  <% if logged_in? == nil %>
-    <footer>
-      <% if current_admin %>
-        <%= link_to 'Admin Logout', destroy_admin_session_path, method: :delete %>
-      <% elsif Admin.all.count < 2 %>
-        <%= link_to 'Admin Register', new_admin_registration_path %> |
-        <%= link_to 'Admin Login', new_admin_session_path %>
-      <% else %>
-        <%= link_to 'Admin Login', new_admin_session_path %>
-      <% end %>
-    </footer>
-  <% end %>
+      <main class="col s9">
+          <%= yield %>
+      </main><br>
+    </div>
+    <% if logged_in? == nil %>
+      <footer>
+        <% if current_admin %>
+          <%= link_to 'Admin Logout', destroy_admin_session_path, method: :delete %>
+        <% elsif Admin.all.count < 2 %>
+          <%= link_to 'Admin Register', new_admin_registration_path %> |
+          <%= link_to 'Admin Login', new_admin_session_path %>
+        <% else %>
+          <%= link_to 'Admin Login', new_admin_session_path %>
+        <% end %>
+      </footer>
+    <% end %>
   </body>
 </html>
