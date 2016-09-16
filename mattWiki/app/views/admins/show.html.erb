@@ -1,0 +1,17 @@
+<% if current_admin %>
+  <h1>Admin Page:</h1>
+
+  <!-- Show all articles (newest version)-->
+
+  <form name='featured' method='GET' action="/articles/featured">
+    <!-- <input type='hidden' name='_method' value='PUT'> -->
+    <select name="articles">
+      <% @articles.each do |article| %>
+        <option value='<%= article.id %>'><%= article.versions.last.title %></option>
+      <% end %>
+      <input type="submit">
+    </select>
+  </form><br>
+
+  <footer><%= link_to 'Admin Delete', destroyAdmin_path, method: :delete %></footer>
+<% end %>
