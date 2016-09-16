@@ -1,3 +1,8 @@
+$(document).ready(function() {
+	$('select').materialize_select();
+	return
+});
+
 /*!
  * Materialize v0.97.7 (http://materializecss.com)
  * Copyright 2014-2015 Materialize
@@ -95,6 +100,7 @@ jQuery.extend( jQuery.easing,
 		return c*(t/=d)*t*t*t*t + b;
 	},
 	easeOutQuint: function (x, t, b, c, d) {
+
 		return c*((t=t/d-1)*t*t*t*t + 1) + b;
 	},
 	easeInOutQuint: function (x, t, b, c, d) {
@@ -2029,7 +2035,7 @@ $(document).ready(function(){
         }
         else {
           // Insert as text;
-          toast.innerHTML = html; 
+          toast.innerHTML = html;
         }
         // Bind hammer
         var hammerHandler = new Hammer(toast, {prevent_default: false});
@@ -7466,3 +7472,5 @@ Picker.extend( 'pickadate', DatePicker )
       }
     }; // Plugin end
 }( jQuery ));
+
+

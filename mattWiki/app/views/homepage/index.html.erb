@@ -1,7 +1,7 @@
 <% @featured_article = Article.find_by_featured(true) %>
 
 <% if @featured_article %>
-  <div>
+  <div class='featured-article'>
     <h3>Featured Article</h3>
     Title: <%= @featured_article.versions.last.title %><br>
     Author: <%= @featured_article.versions.last.author.username %><br>
