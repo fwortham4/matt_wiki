@@ -4,4 +4,6 @@ class Article < ApplicationRecord
   accepts_nested_attributes_for :versions
   validates_presence_of :category_id
 
+
+
 end
