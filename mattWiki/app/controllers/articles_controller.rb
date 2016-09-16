@@ -11,7 +11,6 @@ class ArticlesController < ApplicationController
   end
 
   def create
-
     @article = Article.new(category_id: params["article"]["category_id"])
     @article.save
     @version = Version.new
@@ -27,6 +26,7 @@ class ArticlesController < ApplicationController
     @versions = @article.versions
     @version_count = @article.versions.count - 1
     @author = @version.author
+
     if @article.save
       @article
       @version
@@ -41,4 +41,8 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
+  def featured
+    selected = Article.find(params[:articles])
+    selected.selected_featured
+  end
 end
