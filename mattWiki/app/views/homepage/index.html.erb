@@ -1,19 +1,8 @@
-<h1>Matt Wiki</h1>
-
-<br><br>
-<h2>Categories</h2>
-
-<% @categories.each do |category| %>
-  <%= link_to category.name, category %><br>
-<% end %>
-
 <% @featured_article = Article.find_by_featured(true) %>
-<!-- Relocate this logic later!!!! -->
 
-<br><br><br>
 <% if @featured_article %>
   <div>
-    <h2>Featured Article</h2>
+    <h3>Featured Article</h3>
     Title: <%= @featured_article.versions.last.title %><br>
     Author: <%= @featured_article.versions.last.author.username %><br>
     Content: <%= @featured_article.versions.last.content %><br>

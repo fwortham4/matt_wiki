@@ -1,23 +1,27 @@
+<span class="nav-wrapper">
+  <%= form_tag categories_path, :method => 'get' do %>
+    <p class="input-field">
+      <%= text_field_tag :search, params[:search], id: 'search', type: "search" %>
+      <%= submit_tag "Search", :name => nil, class: "material-icons" %>
+    </p>
+  <% end %>
+</span>
 <nav>
-  <%= link_to 'Home', root_path %> |
+  <div class="nav-wrapper">
+
+  <%= link_to 'Matt Wiki', root_path, class: "brand-logo center" %>
+
   <% if logged_in? %>
     <%= link_to current_user.username, current_user %> |
     <%= link_to "New Article", new_article_path %> |
     <%= link_to 'Logout', session_path(current_user.id), method: :delete %>
   <% elsif admin_signed_in? %>
-    <%= link_to 'Admin Page', admin_path(current_admin.id) %> |
+    <%= link_to 'Admin Page', admin_path(current_admin.id) %>
   <% else %>
     <%= link_to 'Registration', new_user_path %> |
     <%= link_to 'Login', new_session_path %>
   <% end %>
 
-<span>
-<%= form_tag categories_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
-</span>
+  </div>
 
 </nav>
