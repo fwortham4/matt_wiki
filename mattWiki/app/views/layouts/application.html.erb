@@ -29,7 +29,8 @@
     <%= render '/layouts/nav' %>
   <main>
     <%= yield %>
-  </main><br>
+  </main>
+  <br/>
   <% if logged_in? == nil %>
     <footer>
       <% if current_admin %>

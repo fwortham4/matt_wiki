@@ -17,7 +17,15 @@
         <textarea id="mytextarea" <%= ff.text_area :content, :value => @version1.content  %> >
 
         </textarea><br>
+
+    <%= ff.label :category_id %>
+    <%= ff.select (:category_id)  do %>
+      <% categories_options_array = Category.all.map {|category| [category.name, category.id]} %>
+      <%= options_for_select(categories_options_array) %>
+    <% end %>
   <% end %>
+
+
 
   <br><br>
   <%= f.submit %>
