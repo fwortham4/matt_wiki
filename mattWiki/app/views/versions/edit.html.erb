@@ -10,13 +10,13 @@
     </div>
   <% end %>
   <%= f.fields_for :version do |ff| %>
-      <%= ff.label :title %><br>
-      <%= ff.text_field :title, :value => @version.title %><br>
-      <%= ff.label :content %><br>
+      <%= ff.label :title %><br/>
+      <%= ff.text_field :title, :value => @version.title %><br/>
+      <%= ff.label :content %><br/>
         <textarea id="mytextarea",value => <%= @version.content %> <% ff.text_field :content %> >
-        </textarea><br>
+        </textarea><br/>
   <% end %>
 
-  <br><br>
+  <br/><br/>
   <%= f.submit %>
  <% end %>
